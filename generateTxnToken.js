@@ -9,10 +9,10 @@ var paytmParams = {};
 
 paytmParams.body = {
     "requestType": "Payment",
-    "mid": "YOUR_MID_HERE",
-    "websiteName": "YOUR_WEBSITE_NAME",
+    "mid": "DuJQPE27238218658376",
+    "websiteName": "WEBSTAGING",
     "orderId": "ORDERID_98765",
-    "callbackUrl": "https://<callback URL to be used by merchant>",
+    "callbackUrl": "https://securegw-stage.paytm.in/theia/api/v1/initiateTransaction?mid={mid}&orderId={order-id}",
     "txnAmount": {
         "value": "1.00",
         "currency": "INR",
@@ -26,7 +26,7 @@ paytmParams.body = {
 * Generate checksum by parameters we have in body
 * Find your Merchant Key in your Paytm Dashboard at https://dashboard.paytm.com/next/apikeys 
 */
-PaytmChecksum.generateSignature(JSON.stringify(paytmParams.body), "YOUR_MERCHANT_KEY").then(function (checksum) {
+PaytmChecksum.generateSignature(JSON.stringify(paytmParams.body), "B2lGV0a9wy1RuOhk").then(function (checksum) {
 
     paytmParams.head = {
         "signature": checksum
